@@ -517,6 +517,9 @@ else
 endif
 endif
 
+modules_install:
+       $(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
+
 libwapi:
 ifneq (,$(findstring 2.4,$(LINUX_SRC)))
 	cp -f os/linux/Makefile.libwapi.4 $(RT28xx_DIR)/os/linux/Makefile
