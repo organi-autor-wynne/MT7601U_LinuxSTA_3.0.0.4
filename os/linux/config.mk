@@ -1184,3 +1184,9 @@ ifeq ($(PLATFORM),IMX)
 EXTRA_CFLAGS := -D__KERNEL__ -DMODULE $(WFLAGS)  
 export EXTRA_CFLAGS
 endif
+
+ifeq ($(PLATFORM),YOCTO)
+#EXTRA_CFLAGS := -D__KERNEL__ -I$(LINUX_SRC)/include -mlittle-endian -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -O3 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-omit-frame-pointer -mapcs -mno-sched-prolog -mno-thumb-interwork -D__LINUX_ARM_ARCH__=5 -march=armv5te -mtune=arm926ej-s --param max-inline-insns-single=40000  -Uarm -Wdeclaration-after-statement -Wno-pointer-sign -DMODULE $(WFLAGS) 
+EXTRA_CFLAGS := -D__KERNEL__ -DMODULE $(WFLAGS)  
+export EXTRA_CFLAGS
+endif
