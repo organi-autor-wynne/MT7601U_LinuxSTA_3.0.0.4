@@ -28,7 +28,8 @@ RTMP_SRC_DIR = $(RT28xx_DIR)/RT$(MODULE)
 
 #PLATFORM: Target platform
 #PLATFORM = PC
-PLATFORM = IMX
+#PLATFORM = IMX
+PLATFORM = YOCTO
 #PLATFORM = 5VT
 #PLATFORM = IKANOS_V160
 #PLATFORM = IKANOS_V180
@@ -266,6 +267,11 @@ ifeq ($(PLATFORM),IMX)
 #LINUX_SRC = /home/wynne/work/iMX6/git/kernel/fsl-linux-4.1.15
 LINUX_SRC = /home/wynne/work/iMX6/git/kernel/fsl-linux-3.10.17
 CROSS_COMPILE = /opt/buildroot/imx6-dev/host/usr/bin/arm-buildroot-linux-gnueabihf-
+endif
+
+ifeq ($(PLATFORM),YOCTO)
+LINUX_SRC = $(KERNEL_SRC)
+CROSS_COMPILE = $(TARGET_PREFIX)
 endif
 
 ifeq ($(PLATFORM),CAVM_OCTEON)
