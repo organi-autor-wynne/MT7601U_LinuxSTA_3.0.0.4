@@ -272,6 +272,7 @@ endif
 ifeq ($(PLATFORM),YOCTO)
 LINUX_SRC = $(KERNEL_SRC)
 CROSS_COMPILE = $(TARGET_PREFIX)
+SRC := $(shell pwd)
 endif
 
 ifeq ($(PLATFORM),CAVM_OCTEON)
