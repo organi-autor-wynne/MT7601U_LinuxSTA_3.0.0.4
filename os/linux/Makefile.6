@@ -518,7 +518,7 @@ endif
 #endif // MT7601U //
 
 
-PHONY := clean install uninstall
+PHONY := clean install uninstall modules_install
 
 clean:
 	rm -f ../../common/*.o
@@ -559,7 +559,10 @@ install:
 	install -d $(LINUX_SRC_MODULE)
 	install -m 644 -c $(addsuffix .ko,$(MOD_NAME)) $(LINUX_SRC_MODULE)
 	/sbin/depmod -a ${shell uname -r}
-
+	
+modules_install:
+	  $(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
+	  
 uninstall:
 #	rm -rf $(DAT_PATH)
 	rm -rf $(addprefix $(LINUX_SRC_MODULE),$(addsuffix .ko,$(MOD_NAME)))

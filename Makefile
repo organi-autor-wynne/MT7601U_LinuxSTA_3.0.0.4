@@ -519,7 +519,14 @@ endif
 endif
 
 modules_install:
-       $(MAKE) -C $(KERNEL_SRC) M=$(RT28xx_DIR)/os/linux modules_install
+#       $(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
+ifeq ($(TARGET), LINUX)
+ifneq (,$(findstring 2.4,$(LINUX_SRC)))
+	$(MAKE) -C $(RT28xx_DIR)/os/linux -f Makefile.4 install
+else
+	$(MAKE) -C $(RT28xx_DIR)/os/linux -f Makefile.6 modules_install
+endif
+endif
 
 libwapi:
 ifneq (,$(findstring 2.4,$(LINUX_SRC)))
