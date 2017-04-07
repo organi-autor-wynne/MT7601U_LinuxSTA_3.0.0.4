@@ -330,7 +330,7 @@ endif
 export OSABL RT28xx_DIR RT28xx_MODE LINUX_SRC CROSS_COMPILE CROSS_COMPILE_INCLUDE PLATFORM RELEASE CHIPSET MODULE RTMP_SRC_DIR LINUX_SRC_MODULE TARGET HAS_WOW_SUPPORT
 
 # The targets that may be used.
-PHONY += all build_tools test UCOS THREADX LINUX release prerelease clean uninstall install libwapi osabl
+PHONY += all build_tools test UCOS THREADX LINUX release prerelease clean uninstall install modules_install libwapi osabl
 
 ifeq ($(TARGET),LINUX)
 all: build_tools $(TARGET)
