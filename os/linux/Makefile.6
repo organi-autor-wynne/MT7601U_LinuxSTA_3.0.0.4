@@ -561,7 +561,7 @@ install:
 	/sbin/depmod -a ${shell uname -r}
 	
 modules_install:
-	  $(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
+	  $(MAKE) -C $(KERNEL_SRC) M=$(shell pwd) modules_install
 	  
 uninstall:
 #	rm -rf $(DAT_PATH)
